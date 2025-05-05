@@ -25,4 +25,9 @@ public class Funcionario {
             throw new IllegalArgumentException("As horas trabalhadas devem ser entre 20 e 40h");
         }
     }
+
+    public Integer getHorasTrabalhadas() {
+    
+        return horasTrabalhadas;
+    }
 }

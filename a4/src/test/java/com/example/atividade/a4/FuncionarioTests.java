@@ -15,10 +15,6 @@ public class FuncionarioTests {
         funcionario = new Funcionario();
     }
 
-    @Test
-    public void testarCalculoHora() {
-        Double pagamento = funcionario.calcularPagamento();
-    }
 
     @Test
     @DisplayName("Caso de testes em que é inserido um valor de hora maior que 40h")
@@ -48,5 +44,22 @@ public class FuncionarioTests {
                     funcionario = new Funcionario(entradaInvalida);
                 });
         assertEquals(mensagemEsperada, e.getMessage());
+    }
+
+    @Test
+    @DisplayName("Caso de testes em que é inserido um valor de hora valido entre 20 e 40")
+    public void testarConstrutorEntradaValorHoraValida() {
+        // Arrange
+        Integer entradaValida = 21;
+        Integer saidaEsperada = 21;
+
+        // act
+        
+      funcionario = new Funcionario(entradaValida);
+
+      //assing
+      Integer saidaObtida = funcionario.getHorasTrabalhadas();
+                
+        assertEquals(saidaEsperada, saidaObtida);
     }
 }
