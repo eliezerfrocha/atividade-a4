@@ -15,6 +15,11 @@ public class FuncionarioTests {
         funcionario = new Funcionario();
     }
 
+    @Test
+     public void testarCalculoHora() {
+         Double pagamento = funcionario.calcularPagamento();
+    }
+
 
     @Test
     @DisplayName("Caso de testes em que é inserido um valor de hora invalida")
@@ -47,6 +52,7 @@ public class FuncionarioTests {
                 });
         assertEquals(mensagemEsperada, e.getMessage());
     }
+
 
     @Test
     @DisplayName("Caso de testes em que é inserido um valor de hora valido entre 20 e 40")

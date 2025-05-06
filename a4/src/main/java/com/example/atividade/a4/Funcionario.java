@@ -32,8 +32,24 @@ public class Funcionario {
         }
     }
 
+    public double setValorHora() {
+        return validaValorHora(valorHora);
+    }
+
+    public Double validaValorHora(Double valorHora) {
+        double salarioMinimo = 1518.00;
+        double minimo = salarioMinimo * 0.04;
+        double maximo = salarioMinimo * 0.10;
+    
+        if (valorHora >= minimo && valorHora <= maximo) {
+            return valorHora;
+        } else {
+            throw new IllegalArgumentException(String.format("O valor por hora deve estar entre %.2f e %.2f", minimo, maximo));
+        }
+
     public Integer getHorasTrabalhadas() {
     
         return horasTrabalhadas;
+
     }
 }
