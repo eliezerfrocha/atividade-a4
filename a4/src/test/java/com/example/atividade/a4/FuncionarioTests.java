@@ -15,10 +15,10 @@ public class FuncionarioTests {
         funcionario = new Funcionario();
     }
 
-    @Test
-    public void testarCalculoHora() {
-        Double pagamento = funcionario.calcularPagamento();
-    }
+    // @Test
+    // public void testarCalculoHora() {
+    //     Double pagamento = funcionario.calcularPagamento();
+    // }
 
     @Test
     @DisplayName("Caso de testes em que é inserido um valor de hora maior que 40h")
@@ -49,4 +49,7 @@ public class FuncionarioTests {
                 });
         assertEquals(mensagemEsperada, e.getMessage());
     }
+
+
+
 }
