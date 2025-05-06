@@ -17,16 +17,18 @@ public class FuncionarioTests {
 
 
     @Test
-    @DisplayName("Caso de testes em que é inserido um valor de hora maior que 40h")
-    public void testarConstrutorEntradaValorHoraInvalidaLimiteSuperior() {
+    @DisplayName("Caso de testes em que é inserido um valor de hora invalida")
+    public void testarConstrutorEntradaValorHoraInvalida() {
         // Arrange
-        Integer entradaInvalida = 41;
+        Integer entradaHoraInvalida = 41;
+        String entradaNome = "Jose";
+        Double entradaValorhoraValida = 61.55;
         String mensagemEsperada = "As horas trabalhadas devem ser entre 20 e 40h";
 
         // act
         Throwable e = assertThrows(IllegalArgumentException.class,
                 () -> {
-                    funcionario = new Funcionario(entradaInvalida);
+                    funcionario = new Funcionario(entradaNome,entradaHoraInvalida,entradaValorhoraValida);
                 });
         assertEquals(mensagemEsperada, e.getMessage());
     }
