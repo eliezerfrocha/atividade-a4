@@ -22,8 +22,8 @@ public class FuncionarioTests {
 
 
     @Test
-    @DisplayName("Caso de testes em que é inserido um valor de hora invalida")
-    public void testarConstrutorEntradaValorHoraInvalida() {
+    @DisplayName("Caso de testes em que é inserido um valor de horas trabalhadas invalida")
+    public void testarConstrutorEntradahorasTrabalhadasInvalida() {
         // Arrange
         Integer entradaHoraInvalida = 41;
         String entradaNome = "Jose";
@@ -39,35 +39,43 @@ public class FuncionarioTests {
     }
 
     @Test
-    @DisplayName("Caso de testes em que é inserido um valor de hora menor que 20h")
-    public void testarConstrutorEntradaValorHoraInvalidaLimiteInferior() {
+    @DisplayName("Caso de testes em que é inserido um valor de valorHora invalido")
+    public void testarConstrutorEntradaValorHoraInvalido() {
         // Arrange
-        Integer entradaInvalida = 19;
-        String mensagemEsperada = "As horas trabalhadas devem ser entre 20 e 40h";
+        Integer entradaHoraValida = 40;
+        String entradaNome = "Jose";
+        Double entradaValorhoraInvalido = 15.00;
+        String mensagemEsperada = "O valor por hora deve estar entre 60,72 e 151,80";
 
         // act
         Throwable e = assertThrows(IllegalArgumentException.class,
                 () -> {
-                    funcionario = new Funcionario(entradaInvalida);
+                    funcionario = new Funcionario(entradaNome,entradaHoraValida,entradaValorhoraInvalido);
                 });
         assertEquals(mensagemEsperada, e.getMessage());
     }
 
 
     @Test
-    @DisplayName("Caso de testes em que é inserido um valor de hora valido entre 20 e 40")
-    public void testarConstrutorEntradaValorHoraValida() {
+    @DisplayName("Caso de testes em que é inserido valores validos")
+    public void testarConstrutorEntradasValidas() {
         // Arrange
-        Integer entradaValida = 21;
-        Integer saidaEsperada = 21;
+        String entradaNomeValido = "Jose";
+        Integer entradaHorasTrabalhadasValida = 21;
+        Double entradaValorHoraValida = 61.55;
+
+        Integer SaidaEsperadaHorasTrabalhadas = 21;
+        Double saidaEsperadaValorHora = 61.55;
 
         // act
         
-      funcionario = new Funcionario(entradaValida);
+      funcionario = new Funcionario(entradaNomeValido,entradaHorasTrabalhadasValida,entradaValorHoraValida);
 
       //assing
-      Integer saidaObtida = funcionario.getHorasTrabalhadas();
+      Integer saidaHorasTrabalhadas = funcionario.getHorasTrabalhadas();
+      Double saidaValorHora = funcionario.getValorHora();
                 
-        assertEquals(saidaEsperada, saidaObtida);
+        assertEquals(SaidaEsperadaHorasTrabalhadas, saidaHorasTrabalhadas);
+        assertEquals(saidaEsperadaValorHora, saidaValorHora);
     }
 }
