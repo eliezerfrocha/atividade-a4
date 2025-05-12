@@ -16,7 +16,7 @@ public class Funcionario {
     public Funcionario(String nome, Integer horasTrabalhadas, Double valorHora) {
         this.nome = nome;
         this.horasTrabalhadas = validaHora(horasTrabalhadas);
-        this.valorHora = valorHora;
+        this.valorHora = validaValorHora(valorHora);
     }
 
     public Double calcularPagamento() {
@@ -52,5 +52,10 @@ public class Funcionario {
     
         return horasTrabalhadas;
 
+    }
+
+    public Double getValorHora() {
+        // TODO Auto-generated method stub
+        return valorHora;
     }
 }
