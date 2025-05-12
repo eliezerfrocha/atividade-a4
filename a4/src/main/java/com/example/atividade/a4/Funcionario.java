@@ -5,9 +5,7 @@ public class Funcionario {
     private Integer horasTrabalhadas;
     private Double valorHora;
 
-    public Funcionario() {
-        //TODO Auto-generated constructor stub
-    }
+    public Funcionario() {}
 
     public Funcionario(Integer horasTrabalhadas) {
         this.horasTrabalhadas = validaHora(horasTrabalhadas);
@@ -20,8 +18,7 @@ public class Funcionario {
     }
 
     public Double calcularPagamento() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularPagamento'");
+        return getHorasTrabalhadas() * setValorHora();
     }
 
     public Integer validaHora(Integer horasTrabalhadas){
@@ -46,6 +43,7 @@ public class Funcionario {
         } else {
             throw new IllegalArgumentException(String.format("O valor por hora deve estar entre %.2f e %.2f", minimo, maximo));
         }
+    }
 
     public Integer getHorasTrabalhadas() {
     
