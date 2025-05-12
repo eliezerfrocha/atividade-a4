@@ -46,6 +46,7 @@ public class Funcionario {
         } else {
             throw new IllegalArgumentException(String.format("O valor por hora deve estar entre %.2f e %.2f", minimo, maximo));
         }
+    }
 
     public Integer getHorasTrabalhadas() {
     
