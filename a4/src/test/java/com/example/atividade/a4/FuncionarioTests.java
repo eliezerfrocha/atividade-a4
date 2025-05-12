@@ -15,10 +15,6 @@ public class FuncionarioTests {
         funcionario = new Funcionario();
     }
 
-    @Test
-     public void testarCalculoHora() {
-         Double pagamento = funcionario.calcularPagamento();
-    }
 
 
     @Test
@@ -78,4 +74,109 @@ public class FuncionarioTests {
         assertEquals(SaidaEsperadaHorasTrabalhadas, saidaHorasTrabalhadas);
         assertEquals(saidaEsperadaValorHora, saidaValorHora);
     }
+
+    @Test
+    @DisplayName("Caso de teste caso o nome seja vazio")
+    public void testarValidacaoDeNomeVazio() {
+        // Arrange
+        String entradaNomeVazio = "";
+        String mensagemEsperada = "O nome não pode ser nulo, vazio ou conter caracteres inválidos.";
+
+        // act
+        Throwable e = assertThrows(IllegalArgumentException.class,
+                () -> {
+                    funcionario.setNome(entradaNomeVazio);
+                });
+        assertEquals(mensagemEsperada, e.getMessage());
+    }
+
+
+    @Test
+    @DisplayName("Caso de teste caso o nome contenha caracteres inválidos.")
+    public void testarValidacaoDeNomeCaracteresInvalido() {
+        // Arrange
+        String entradaNomeVazio = "Jo@o123";
+        String mensagemEsperada = "O nome não pode ser nulo, vazio ou conter caracteres inválidos.";
+
+        // act
+        Throwable e = assertThrows(IllegalArgumentException.class,
+                () -> {
+                    funcionario.setNome(entradaNomeVazio);
+                });
+        assertEquals(mensagemEsperada, e.getMessage());
+    }
+
+    @Test
+    @DisplayName("Caso de teste caso o nome seja nulo")
+    public void testarValidacaoDeNomeNulo() {
+        // Arrange
+        String entradaNomeVazio = null;
+        String mensagemEsperada = "O nome não pode ser nulo, vazio ou conter caracteres inválidos.";
+
+        // act
+        Throwable e = assertThrows(IllegalArgumentException.class,
+                () -> {
+                    funcionario.setNome(entradaNomeVazio);
+                });
+        assertEquals(mensagemEsperada, e.getMessage());
+    }
+
+    @Test
+    @DisplayName("Caso de teste caso o nome seja valido")
+    public void testarValidacaoDeNomeValido() {
+        // Arrange
+        String entradaNomevalido = "Jose";
+        String saidaEsperada = "Jose" ;
+
+        // act
+        funcionario.setNome(entradaNomevalido);
+
+        //assign
+
+        String saidaObtida = funcionario.getNome();
+        
+        assertEquals(saidaEsperada, saidaObtida);
+    }
+
+    @Test
+    @DisplayName("Caso de teste caso as horas trabalhadas sejam maior que 40")
+    public void testarValidacaoHorasTrabalhadasMaior(){
+        //Arrange
+        Integer entradaHorasMaior = 41;
+        String mensagemEsperada = "As horas trabalhadas devem ser entre 20 e 40h";
+        // act
+        Throwable e = assertThrows(IllegalArgumentException.class,
+                () -> {
+                    funcionario.setHorasTrabalhadas(entradaHorasMaior);
+                });
+        assertEquals(mensagemEsperada, e.getMessage());        
+    }
+
+    @Test
+    @DisplayName("Caso de teste caso as horas trabalhadas sejam menor que 20")
+    public void testarValidacaoHorasTrabalhadasMenor(){
+        //Arrange
+        Integer entradaHorasMenor = 19;
+        String mensagemEsperada = "As horas trabalhadas devem ser entre 20 e 40h";
+        // act
+        Throwable e = assertThrows(IllegalArgumentException.class,
+                () -> {
+                    funcionario.setHorasTrabalhadas(entradaHorasMenor);
+                });
+        assertEquals(mensagemEsperada, e.getMessage());        
+    }
+
+    @Test
+    @DisplayName("Caso de teste caso as horas trabalhadas sejam validas")
+    public void testarValidacaoHorasTrabalhadasValidas(){
+        //Arrange
+        Integer entradaHorasvalidas = 25;
+        Integer saidaEsperada = 25;
+        // act
+        funcionario.setHorasTrabalhadas(entradaHorasvalidas);
+        //assign
+        Integer saidaObtida = funcionario.getHorasTrabalhadas();
+        assertEquals(saidaEsperada, saidaObtida);        
+    }
+
 }

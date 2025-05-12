@@ -14,7 +14,7 @@ public class Funcionario {
     }
     
     public Funcionario(String nome, Integer horasTrabalhadas, Double valorHora) {
-        this.nome = nome;
+        this.nome = validaNome(nome);
         this.horasTrabalhadas = validaHora(horasTrabalhadas);
         this.valorHora = validaValorHora(valorHora);
     }
@@ -58,4 +58,29 @@ public class Funcionario {
         // TODO Auto-generated method stub
         return valorHora;
     }
+
+    public void setNome(String nome) {
+        this.nome = validaNome(nome);
+    }
+
+    public String validaNome(String nome) {
+        if (nome != null && !nome.trim().isEmpty() && nome.matches("^[a-zA-ZÀ-ÿ\\s]+$")) {
+            return nome;
+        } else {
+            throw new IllegalArgumentException("O nome não pode ser nulo, vazio ou conter caracteres inválidos.");
+        }
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setHorasTrabalhadas(Integer horasTrabalhadas) {
+        this.horasTrabalhadas = validaHora(horasTrabalhadas);
+    }
+
+    public void setValorHora(Double valorHora) {
+        this.valorHora = valorHora;
+    }
+    
 }
