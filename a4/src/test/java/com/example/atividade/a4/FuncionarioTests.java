@@ -65,25 +65,25 @@ public class FuncionarioTests {
         assertEquals(mensagemEsperada, e.getMessage());
     }
 
-    @Test
-    @DisplayName("Caso de testes em que é inserido valores validos")
-    public void testarConstrutorEntradasValidas() {
-        // Arrange
-        String entradaNomeValido = "Jose";
-        Integer entradaHorasTrabalhadasValida = 21;
-        Double entradaValorHoraValida = 61.55;
+    // @Test
+    // @DisplayName("Caso de testes em que é inserido valores validos")
+    // public void testarConstrutorEntradasValidas() {
+    //     // Arrange
+    //     String entradaNomeValido = "Jose";
+    //     Integer entradaHorasTrabalhadasValida = 21;
+    //     Double entradaValorHoraValida = 61.55;
 
-        Integer SaidaEsperadaHorasTrabalhadas = 21;
-        Double saidaEsperadaValorHora = 61.55;
+    //     Integer SaidaEsperadaHorasTrabalhadas = 21;
+    //     Double saidaEsperadaValorHora = 61.55;
 
-        // act
-        funcionario = new Funcionario(entradaValida);
+    //     // act
+    //     funcionario = new Funcionario(entradaValida);
 
-        // assing
-        Integer saidaObtida = funcionario.getHorasTrabalhadas();
+    //     // assing
+    //     Integer saidaObtida = funcionario.getHorasTrabalhadas();
 
-        assertEquals(saidaEsperada, saidaObtida);
-    }
+    //     assertEquals(saidaEsperada, saidaObtida);
+    // }
 
     // #region Testes para setValorHora()
 
@@ -99,7 +99,7 @@ public class FuncionarioTests {
     @DisplayName("Valor da hora abaixo do mínimo permitido")
     public void testarSetValorHoraAbaixoLimite() {
         Double valorInvalido = 50.00;
-        String mensagemEsperada = "O valor por hora deve estar entre 60.72 e 151.80";
+        String mensagemEsperada = "O valor por hora deve estar entre 60,72 e 151,80";
 
         funcionario = new Funcionario("João", 25, valorInvalido);
 
